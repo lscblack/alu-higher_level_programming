@@ -1,18 +1,21 @@
 #!/bin/bash
-echo -e "#!/usr/bin/python3\nprint(\"Best School\")">main.py
 # Set the PYFILE environment variable
 export PYFILE="main.py"
-
-# Add the .py extension if it's missing
-if [[ "$PYFILE" != *.py ]]; then
-    PYFILE="${PYFILE}.py"
+if [ -z "$PYFILE" ]; then
+    echo "Error: The environment variable PYFILE is not set."
+    exit 1
 fi
 
-OUTPUT_FILE="${PYFILE}c"
+# Check if the provided PYFILE contains the .py extension and remove it if necessary
+if [[ "$PYFILE" == *.py ]]; then
+    OUTPUT_FILE="${PYFILE%.py}c"
+else
+    OUTPUT_FILE="${PYFILE}c"
+fi
 
 # Compile the Python script
 echo "Compiling $PYFILE ..."
-python3 -m py_compile "$PYFILE"
+python -m py_compile "$PYFILE"
 
 # Check if the compilation was successful
 if [ -f "__pycache__/$OUTPUT_FILE" ]; then

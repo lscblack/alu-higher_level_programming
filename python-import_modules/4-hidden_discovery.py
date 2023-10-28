@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import sys
 
 # Prevent the program from being executed when imported

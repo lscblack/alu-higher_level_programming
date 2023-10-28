@@ -52,24 +52,6 @@
         "documentation": {}
     },
     {
-        "label": "py_compile",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "py_compile",
-        "description": "py_compile",
-        "detail": "py_compile",
-        "documentation": {}
-    },
-    {
-        "label": "marshal",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "marshal",
-        "description": "marshal",
-        "detail": "marshal",
-        "documentation": {}
-    },
-    {
         "label": "message",
         "kind": 5,
         "importPath": "python-hello_world.100-write",
@@ -331,11 +313,29 @@
         "documentation": {}
     },
     {
-        "label": "main",
-        "kind": 2,
+        "label": "names",
+        "kind": 5,
         "importPath": "python-import_modules.4-hidden_discovery",
         "description": "python-import_modules.4-hidden_discovery",
-        "peekOfCode": "def main():\n    compiled_code = open(\"hidden_4.pyc\", \"rb\").read()\n    code = marshal.loads(compiled_code[12:])\n    names = code.co_names\n    for name in sorted(names):\n        if not name.startswith('__'):\n            print(name)\nif __name__ == \"__main__\":\n    main()",
+        "peekOfCode": "names = dir(hidden_4)\n# Filter out the names starting with __\nfiltered_names = [name for name in names if not name.startswith(\"__\")]\n# Sort the filtered names in alphabetical order\nsorted_names = sorted(filtered_names)\n# Print each name on a new line\nfor name in sorted_names:\n    print(name)",
+        "detail": "python-import_modules.4-hidden_discovery",
+        "documentation": {}
+    },
+    {
+        "label": "filtered_names",
+        "kind": 5,
+        "importPath": "python-import_modules.4-hidden_discovery",
+        "description": "python-import_modules.4-hidden_discovery",
+        "peekOfCode": "filtered_names = [name for name in names if not name.startswith(\"__\")]\n# Sort the filtered names in alphabetical order\nsorted_names = sorted(filtered_names)\n# Print each name on a new line\nfor name in sorted_names:\n    print(name)",
+        "detail": "python-import_modules.4-hidden_discovery",
+        "documentation": {}
+    },
+    {
+        "label": "sorted_names",
+        "kind": 5,
+        "importPath": "python-import_modules.4-hidden_discovery",
+        "description": "python-import_modules.4-hidden_discovery",
+        "peekOfCode": "sorted_names = sorted(filtered_names)\n# Print each name on a new line\nfor name in sorted_names:\n    print(name)",
         "detail": "python-import_modules.4-hidden_discovery",
         "documentation": {}
     }

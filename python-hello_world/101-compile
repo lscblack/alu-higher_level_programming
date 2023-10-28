@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if [ -z "$PYFILE" ]; then
+    echo "Error: The environment variable PYFILE is not set."
+    exit 1
+fi
+
+# Add the .py extension if it's missing
+if [[ "$PYFILE" != *.py ]]; then
+    PYFILE="${PYFILE}.py"
+fi
+
+OUTPUT_FILE="${PYFILE}c"
+
+# Compile the Python script
+echo "Compiling $PYFILE ..."
+python -m py_compile "$PYFILE"
+
+# Check if the compilation was successful
+if [ -f "__pycache__/$OUTPUT_FILE" ]; then
+    mv "__pycache__/$OUTPUT_FILE" .
+    rmdir "__pycache__"
+    echo "Compilation successful. Output file: $OUTPUT_FILE"
+else
+    echo "Compilation failed."
+    exit 1
+fi

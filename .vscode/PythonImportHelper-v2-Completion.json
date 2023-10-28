@@ -52,6 +52,15 @@
         "documentation": {}
     },
     {
+        "label": "py_compile",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "py_compile",
+        "description": "py_compile",
+        "detail": "py_compile",
+        "documentation": {}
+    },
+    {
         "label": "marshal",
         "kind": 6,
         "isExtraImport": true,
@@ -326,7 +335,7 @@
         "kind": 2,
         "importPath": "python-import_modules.4-hidden_discovery",
         "description": "python-import_modules.4-hidden_discovery",
-        "peekOfCode": "def main():\n    with open(\"hidden_4.pyc\", \"rb\") as file:\n        file.read(8)  # Skip the first 8 bytes\n        code = marshal.load(file)\n    names = code.co_names\n    for name in sorted(names):\n        if not name.startswith('__'):\n            print(name)\nif __name__ == \"__main\":\n    main()",
+        "peekOfCode": "def main():\n    compiled_code = open(\"hidden_4.pyc\", \"rb\").read()\n    code = marshal.loads(compiled_code[12:])\n    names = code.co_names\n    for name in sorted(names):\n        if not name.startswith('__'):\n            print(name)\nif __name__ == \"__main\":\n    main()",
         "detail": "python-import_modules.4-hidden_discovery",
         "documentation": {}
     }

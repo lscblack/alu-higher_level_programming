@@ -1,9 +1,7 @@
 #!/bin/bash
 
-if [ -z "$PYFILE" ]; then
-    echo "Error: The environment variable PYFILE is not set."
-    exit 1
-fi
+# Set the PYFILE environment variable
+export PYFILE="main.py"
 
 # Add the .py extension if it's missing
 if [[ "$PYFILE" != *.py ]]; then
@@ -14,7 +12,7 @@ OUTPUT_FILE="${PYFILE}c"
 
 # Compile the Python script
 echo "Compiling $PYFILE ..."
-python -m py_compile "$PYFILE"
+python3 -m py_compile "$PYFILE"
 
 # Check if the compilation was successful
 if [ -f "__pycache__/$OUTPUT_FILE" ]; then

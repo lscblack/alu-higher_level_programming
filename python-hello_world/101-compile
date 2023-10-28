@@ -8,11 +8,18 @@ fi
 
 # Compile the Python script and save it as $PYFILEc
 echo "Compiling $PYFILE ..."
-python3 -m py_compile "$PYFILE"
+python3 -m compileall -b -x "__pycache__" "$PYFILE"
 
 # Check if the compilation was successful
 if [ $? -eq 0 ]; then
     echo "Compilation successful."
+    compiled_file="${PYFILE}c"
+    if [ -e "$compiled_file" ]; then
+        echo "Renaming $PYFILE.cpython-*.pyc to $compiled_file ..."
+        mv "$PYFILE.cpython-*.pyc" "$compiled_file"
+    else
+        echo "No compiled file found for renaming."
+    fi
 else
     echo "Compilation failed."
 fi

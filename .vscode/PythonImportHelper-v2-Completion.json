@@ -9,6 +9,22 @@
         "documentation": {}
     },
     {
+        "label": "argv",
+        "importPath": "sys",
+        "description": "sys",
+        "isExtraImport": true,
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "argv",
+        "importPath": "sys",
+        "description": "sys",
+        "isExtraImport": true,
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
         "label": "dis",
         "kind": 6,
         "isExtraImport": true,
@@ -33,6 +49,24 @@
         "importPath": "random",
         "description": "random",
         "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "py_compile",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "py_compile",
+        "description": "py_compile",
+        "detail": "py_compile",
+        "documentation": {}
+    },
+    {
+        "label": "marshal",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "marshal",
+        "description": "marshal",
+        "detail": "marshal",
         "documentation": {}
     },
     {

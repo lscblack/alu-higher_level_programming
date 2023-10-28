@@ -52,21 +52,12 @@
         "documentation": {}
     },
     {
-        "label": "py_compile",
+        "label": "hidden_4",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "py_compile",
-        "description": "py_compile",
-        "detail": "py_compile",
-        "documentation": {}
-    },
-    {
-        "label": "marshal",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "marshal",
-        "description": "marshal",
-        "detail": "marshal",
+        "importPath": "hidden_4",
+        "description": "hidden_4",
+        "detail": "hidden_4",
         "documentation": {}
     },
     {
@@ -328,15 +319,6 @@
         "description": "python-import_modules.1-calculation",
         "peekOfCode": "b = 5\nif __name__ == \"__main__\":\n    from calculator_1 import add, sub, mul, div\n    result_add = add(a, b)\n    result_sub = sub(a, b)\n    result_mul = mul(a, b)\n    result_div = div(a, b)\n    output = \"{} + {} = {}\\n{} - {} = {}\\n{} * {} = {}\\n{} / {} = {}\".format(\n        a, b, result_add, a, b, result_sub, a, b, result_mul, a, b, result_div\n    )",
         "detail": "python-import_modules.1-calculation",
-        "documentation": {}
-    },
-    {
-        "label": "main",
-        "kind": 2,
-        "importPath": "python-import_modules.4-hidden_discovery",
-        "description": "python-import_modules.4-hidden_discovery",
-        "peekOfCode": "def main():\n    py_compile.compile(\"hidden_4.py\")\n    compiled_code = open(\"hidden_4.pyc\", \"rb\").read()\n    code = marshal.loads(compiled_code[12:])\n    names = code.co_names\n    for name in sorted(names):\n        if not name.startswith('__'):\n            print(name)\nif __name__ == \"__main__\":\n    main()",
-        "detail": "python-import_modules.4-hidden_discovery",
         "documentation": {}
     }
 ]

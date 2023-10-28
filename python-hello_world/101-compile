@@ -1,5 +1,5 @@
 #!/bin/bash
-
+echo -e "#!/usr/bin/python3\nprint(\"Best School\")">main.py
 # Set the PYFILE environment variable
 export PYFILE="main.py"
 

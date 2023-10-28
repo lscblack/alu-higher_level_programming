@@ -13,6 +13,6 @@ def main():
         if not name.startswith('__'):
             print(name)
 
-if __name__ == "__main":
+if __name__ == "__main__":
     main()
 

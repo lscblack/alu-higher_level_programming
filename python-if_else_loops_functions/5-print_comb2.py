@@ -3,8 +3,8 @@
 output = ""
 for num in range(100):
     if num == 99:
-        output += f"{num:02} "
+        output += "{:02} ".format(num)
     else:
-        output += f"{num:02}, "
+        output += "{:02}, ".format(num)
 
 print(output, end="", flush=True)

@@ -52,6 +52,15 @@
         "documentation": {}
     },
     {
+        "label": "string",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "string",
+        "description": "string",
+        "detail": "string",
+        "documentation": {}
+    },
+    {
         "label": "hidden_4",
         "kind": 6,
         "isExtraImport": true,
@@ -319,6 +328,15 @@
         "description": "python-import_modules.1-calculation",
         "peekOfCode": "b = 5\nif __name__ == \"__main__\":\n    from calculator_1 import add, sub, mul, div\n    result_add = add(a, b)\n    result_sub = sub(a, b)\n    result_mul = mul(a, b)\n    result_div = div(a, b)\n    output = \"{} + {} = {}\\n{} - {} = {}\\n{} * {} = {}\\n{} / {} = {}\".format(\n        a, b, result_add, a, b, result_sub, a, b, result_mul, a, b, result_div\n    )",
         "detail": "python-import_modules.1-calculation",
+        "documentation": {}
+    },
+    {
+        "label": "magic_calculation",
+        "kind": 2,
+        "importPath": "python-import_modules.102-magic_calculation",
+        "description": "python-import_modules.102-magic_calculation",
+        "peekOfCode": "def magic_calculation(a, b):\n    from magic_calculation_102 import add, sub\n    if a < b:\n        c = add(a, b)\n        for i in range(4, 6):\n            c = add(c, i)\n        return c\n    else:\n        return sub(a, b)",
+        "detail": "python-import_modules.102-magic_calculation",
         "documentation": {}
     }
 ]

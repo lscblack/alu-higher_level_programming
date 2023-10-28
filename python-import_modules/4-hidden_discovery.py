@@ -1,13 +1,12 @@
 #!/usr/bin/python3.8
 
-import marshal
+import py_compile
 
 def main():
-    with open("hidden_4.pyc", "rb") as file:
-        file.read(8)  # Skip the first 8 bytes
-        code = marshal.load(file)
+    compiled_code = py_compile.compile("hidden_4.pyc")
+    code = compiled_code.co_code
 
-    names = code.co_names
+    names = compiled_code.co_names
 
     for name in sorted(names):
         if not name.startswith('__'):
@@ -15,4 +14,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

@@ -329,5 +329,23 @@
         "peekOfCode": "b = 5\nif __name__ == \"__main__\":\n    from calculator_1 import add, sub, mul, div\n    result_add = add(a, b)\n    result_sub = sub(a, b)\n    result_mul = mul(a, b)\n    result_div = div(a, b)\n    output = \"{} + {} = {}\\n{} - {} = {}\\n{} * {} = {}\\n{} / {} = {}\".format(\n        a, b, result_add, a, b, result_sub, a, b, result_mul, a, b, result_div\n    )",
         "detail": "python-import_modules.1-calculation",
         "documentation": {}
+    },
+    {
+        "label": "argc",
+        "kind": 5,
+        "importPath": "python-import_modules.2-args",
+        "description": "python-import_modules.2-args",
+        "peekOfCode": "argc = len(argv) - 1\nargs = argv[1:]\nif argc == 0:\n    print(\"0 arguments.\")\nelif argc == 1:\n    print(\"1 argument:\")\n    print(\"1: {}\".format(args[0]))\nelse:\n    print(\"{} arguments:\".format(argc))\n    for i in range(argc):",
+        "detail": "python-import_modules.2-args",
+        "documentation": {}
+    },
+    {
+        "label": "args",
+        "kind": 5,
+        "importPath": "python-import_modules.2-args",
+        "description": "python-import_modules.2-args",
+        "peekOfCode": "args = argv[1:]\nif argc == 0:\n    print(\"0 arguments.\")\nelif argc == 1:\n    print(\"1 argument:\")\n    print(\"1: {}\".format(args[0]))\nelse:\n    print(\"{} arguments:\".format(argc))\n    for i in range(argc):\n        print(\"{}: {}\".format(i + 1, args[i]))",
+        "detail": "python-import_modules.2-args",
+        "documentation": {}
     }
 ]

@@ -3,5 +3,6 @@ def magic_calculation(a, b):
     result = 98
     result += a
     result += b
-    result **= 100  # Raise to a high power
+    result = result // 2  # Divide the result by 2
     return result
+

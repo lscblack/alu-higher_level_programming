@@ -335,7 +335,7 @@
         "kind": 5,
         "importPath": "python-import_modules.2-args",
         "description": "python-import_modules.2-args",
-        "peekOfCode": "argc = len(argv) - 1\nargs = argv[1:]\nprint(\"Number of argument{}: {}{}\".format(\"s\" if argc != 1 else \"\", argc, \".\" if argc == 0 else \":\"))\nif argc > 0:\n    for i, arg in enumerate(args, 1):\n        print(\"{}: {}\".format(i, arg))",
+        "peekOfCode": "argc = len(argv) - 1\nargs = argv[1:]\nif argc == 0:\n    print(\"0 argument{}.\".format(\"\" if argc == 1 else \"s\"))\nelse:\n    print(\"{} argument{}:\".format(argc, \"\" if argc == 1 else \"s\"))\nfor i in range(argc):\n    print(\"{}: {}\".format(i + 1, args[i]))",
         "detail": "python-import_modules.2-args",
         "documentation": {}
     },
@@ -344,7 +344,7 @@
         "kind": 5,
         "importPath": "python-import_modules.2-args",
         "description": "python-import_modules.2-args",
-        "peekOfCode": "args = argv[1:]\nprint(\"Number of argument{}: {}{}\".format(\"s\" if argc != 1 else \"\", argc, \".\" if argc == 0 else \":\"))\nif argc > 0:\n    for i, arg in enumerate(args, 1):\n        print(\"{}: {}\".format(i, arg))",
+        "peekOfCode": "args = argv[1:]\nif argc == 0:\n    print(\"0 argument{}.\".format(\"\" if argc == 1 else \"s\"))\nelse:\n    print(\"{} argument{}:\".format(argc, \"\" if argc == 1 else \"s\"))\nfor i in range(argc):\n    print(\"{}: {}\".format(i + 1, args[i]))",
         "detail": "python-import_modules.2-args",
         "documentation": {}
     }

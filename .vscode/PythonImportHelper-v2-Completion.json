@@ -61,6 +61,15 @@
         "documentation": {}
     },
     {
+        "label": "marshal",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "marshal",
+        "description": "marshal",
+        "detail": "marshal",
+        "documentation": {}
+    },
+    {
         "label": "message",
         "kind": 5,
         "importPath": "python-hello_world.100-write",
@@ -326,7 +335,7 @@
         "kind": 2,
         "importPath": "python-import_modules.4-hidden_discovery",
         "description": "python-import_modules.4-hidden_discovery",
-        "peekOfCode": "def main():\n    compiled_code = py_compile.compile(\"hidden_4.pyc\")\n    code = compiled_code.co_code\n    names = compiled_code.co_names\n    for name in sorted(names):\n        if not name.startswith('__'):\n            print(name)\nif __name__ == \"__main__\":\n    main()",
+        "peekOfCode": "def main():\n    py_compile.compile(\"hidden_4.py\")\n    compiled_code = open(\"hidden_4.pyc\", \"rb\").read()\n    code = marshal.loads(compiled_code[12:])\n    names = code.co_names\n    for name in sorted(names):\n        if not name.startswith('__'):\n            print(name)\nif __name__ == \"__main__\":\n    main()",
         "detail": "python-import_modules.4-hidden_discovery",
         "documentation": {}
     }

@@ -1,12 +1,13 @@
 #!/usr/bin/python3.8
 
 import py_compile
+import marshal
 
 def main():
-    compiled_code = py_compile.compile("hidden_4.pyc")
-    code = compiled_code.co_code
-
-    names = compiled_code.co_names
+    py_compile.compile("hidden_4.py")
+    compiled_code = open("hidden_4.pyc", "rb").read()
+    code = marshal.loads(compiled_code[12:])
+    names = code.co_names
 
     for name in sorted(names):
         if not name.startswith('__'):

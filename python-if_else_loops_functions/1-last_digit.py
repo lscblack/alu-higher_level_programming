@@ -4,7 +4,7 @@ import random
 
 number = random.randint(-10000, 10000)
 
-last_digit = abs(number) % 10  # Get the last digit of the absolute value of the number
+last_digit = abs(number) % 10 
 
 print("Last digit of", number, "is", end=" ")
 if number < 0:

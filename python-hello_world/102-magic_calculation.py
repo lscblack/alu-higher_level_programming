@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 def magic_calculation(a, b):
-    if a < b:
-        return a + b
-    else:
-        return a * b - 98
+    result = 98
+    result += a
+    result += b
+    result **= 100  # Raise to a high power
+    return result

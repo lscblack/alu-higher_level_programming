@@ -52,12 +52,12 @@
         "documentation": {}
     },
     {
-        "label": "py_compile",
+        "label": "io",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "py_compile",
-        "description": "py_compile",
-        "detail": "py_compile",
+        "importPath": "io",
+        "description": "io",
+        "detail": "io",
         "documentation": {}
     },
     {

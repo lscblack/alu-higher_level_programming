@@ -8,6 +8,3 @@ def uppercase(s):
         else:
             # If the character is not lowercase, print it as is
             print(char, end='')
-
-    # Print a new line at the end
-    print()

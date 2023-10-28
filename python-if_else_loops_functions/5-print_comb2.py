@@ -7,4 +7,4 @@ for num in range(100):
     else:
         output += "{:02}, ".format(num)
 
-print(output, end="", flush=True)
+print(output, end="",flush=True)

@@ -52,15 +52,6 @@
         "documentation": {}
     },
     {
-        "label": "io",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "io",
-        "description": "io",
-        "detail": "io",
-        "documentation": {}
-    },
-    {
         "label": "marshal",
         "kind": 6,
         "isExtraImport": true,
@@ -328,6 +319,15 @@
         "description": "python-import_modules.1-calculation",
         "peekOfCode": "b = 5\nif __name__ == \"__main__\":\n    from calculator_1 import add, sub, mul, div\n    result_add = add(a, b)\n    result_sub = sub(a, b)\n    result_mul = mul(a, b)\n    result_div = div(a, b)\n    output = \"{} + {} = {}\\n{} - {} = {}\\n{} * {} = {}\\n{} / {} = {}\".format(\n        a, b, result_add, a, b, result_sub, a, b, result_mul, a, b, result_div\n    )",
         "detail": "python-import_modules.1-calculation",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "python-import_modules.4-hidden_discovery",
+        "description": "python-import_modules.4-hidden_discovery",
+        "peekOfCode": "def main():\n    with open(\"hidden_4.pyc\", \"rb\") as file:\n        code = marshal.load(file)\n    names = code.co_names\n    for name in sorted(names):\n        if not name.startswith('__'):\n            print(name)\nif __name__ == \"__main\":\n    main()",
+        "detail": "python-import_modules.4-hidden_discovery",
         "documentation": {}
     }
 ]

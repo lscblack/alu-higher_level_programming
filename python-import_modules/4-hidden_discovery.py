@@ -1,15 +1,16 @@
-#!/usr/bin/python3.7
-import io
+#!/usr/bin/python3.8
+
 import marshal
 
-if __name__ == "__main__":
-    with open("hidden_4.pyc", "rb") as f:
-        compiled_code = f.read()
+def main():
+    with open("hidden_4.pyc", "rb") as file:
+        code = marshal.load(file)
 
-    code = marshal.loads(io.BytesIO(compiled_code[12:]))
     names = code.co_names
-    names.append("__main__")
 
     for name in sorted(names):
         if not name.startswith('__'):
             print(name)
+
+if __name__ == "__main":
+    main()

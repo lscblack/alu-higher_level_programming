@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-for num in range(0, 99 + 1):
+for num in range(100):
     if num == 99:
-        print("{:02}".format(num), end=" ", flush=True)
+        print(f"{num:02}", end=" ", flush=True)
     else:
-        print("{:02}".format(num), end=", ", flush=True)
+        print(f"{num:02}", end=", ", flush=True)

@@ -1,12 +1,17 @@
 #!/usr/bin/python3.8
-import py_compile
+
 import marshal
 
-if __name__ == "__main__":
-    compiled_code = open("hidden_4.pyc", "rb").read()
-    code = marshal.loads(compiled_code[12:])
+def main():
+    with open("hidden_4.pyc", "rb") as file:
+        file.read(8)  # Skip the first 8 bytes
+        code = marshal.load(file)
+
     names = code.co_names
 
     for name in sorted(names):
         if not name.startswith('__'):
             print(name)
+
+if __name__ == "__main":
+    main()

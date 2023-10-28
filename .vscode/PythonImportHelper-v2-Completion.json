@@ -61,15 +61,6 @@
         "documentation": {}
     },
     {
-        "label": "marshal",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "marshal",
-        "description": "marshal",
-        "detail": "marshal",
-        "documentation": {}
-    },
-    {
         "label": "message",
         "kind": 5,
         "importPath": "python-hello_world.100-write",

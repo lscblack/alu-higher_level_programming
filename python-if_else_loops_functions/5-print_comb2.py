@@ -1,6 +1,10 @@
 #!/usr/bin/python3
+
+output = ""
 for num in range(100):
     if num == 99:
-        print(f"{num:02}", end=" ", flush=True)
+        output += f"{num:02} "
     else:
-        print(f"{num:02}", end=", ", flush=True)
+        output += f"{num:02}, "
+
+print(output, end="", flush=True)

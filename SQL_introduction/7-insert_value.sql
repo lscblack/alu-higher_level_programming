@@ -1,2 +1,2 @@
---- insert all by chriss
-INSERT INTO first_table VALUES (89, 'Best School');
+-- A script that inserts into a database.
+INSERT INTO first_table(id, name) VALUES (89, 'Holberton School');

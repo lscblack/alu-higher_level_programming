@@ -1,4 +1,4 @@
--- Displays the averafe temp by CITY.
+-- show the average temp by CITY.
 SELECT `city`, AVG(`value`) AS `avg_temp`
 FROM `temperatures`
 GROUP BY `city`

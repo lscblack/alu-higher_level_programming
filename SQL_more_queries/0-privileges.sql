@@ -1,2 +1,2 @@
 -- list privileges
-SELECT * FROM mysql.user WHERE User IN ('user_0d_1', 'user_0d_2') AND Host = 'localhost';
+SELECT * FROM information_schema.USER_PRIVILEGES WHERE GRANTEE IN ("'user_0d_1'@'localhost'", "'user_0d_2'@'localhost'");

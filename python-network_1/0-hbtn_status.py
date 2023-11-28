@@ -1,28 +1,22 @@
 #!/usr/bin/python3
-"""Documented"""
+"""
+Python script that fetches https://intranet.hbtn.io/status
 
+- You must use the package urllib
+- You are not allowed to import any packages other than urllib
+- The body of the response must be displayed like the following example
+(tabulation before -)
+- You must use a with statement
+urllib info --> https://docs.python.org/3/howto/urllib2.html
+Info abour decode --> https://stackoverflow.com/questions/38807809/fetching-url
+-and-converting-to-utf-8-python
+"""
+if __name__ == "__main__":
+    import urllib.request
 
-import urllib.request
-
-def fetch_and_display(url, expected_output):
-    with urllib.request.urlopen(url) as response:
+    with urllib.request.urlopen('https://intranet.hbtn.io/status') as response:
         content = response.read()
         print("Body response:")
-        print("\t- type: {}".format(type(content)))
-        print("\t- content: {}".format(content))
-        print("\t- utf8 content: {}".format(content.decode("utf-8")))
-        if content.decode("utf-8") == expected_output:
-            print("(Expected output matched)")
-        else:
-            print("(Expected output NOT matched)")
-
-if __name__ == '__main__':
-    # Fetching 'https://intranet.hbtn.io/status'
-    url_1 = 'https://intranet.hbtn.io/status'
-    expected_output_1 = 'OK'
-    fetch_and_display(url_1, expected_output_1)
-
-    # Fetching 'http://0.0.0.0:5050/status'
-    url_2 = 'http://0.0.0.0:5050/status'
-    expected_output_2 = 'Custom status'
-    fetch_and_display(url_2, expected_output_2)
+        print("\t- type:", type(content))
+        print("\t- content:", content)
+        print("\t- utf8 content:", content.decode("utf-8"))

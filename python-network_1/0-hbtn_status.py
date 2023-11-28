@@ -1,22 +1,16 @@
 #!/usr/bin/python3
-"""
-Python script that fetches https://intranet.hbtn.io/status
+"""Documented"""
+import urllib.request
 
-- You must use the package urllib
-- You are not allowed to import any packages other than urllib
-- The body of the response must be displayed like the following example
-(tabulation before -)
-- You must use a with statement
-urllib info --> https://docs.python.org/3/howto/urllib2.html
-Info abour decode --> https://stackoverflow.com/questions/38807809/fetching-url
--and-converting-to-utf-8-python
-"""
-if __name__ == "__main__":
-    import urllib.request
+url = 'https://intranet.hbtn.io/status'
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36',
+}
 
-    with urllib.request.urlopen('https://intranet.hbtn.io/status') as response:
-        content = response.read()
-        print("Body response:")
-        print("\t- type:", type(content))
-        print("\t- content:", content)
-        print("\t- utf8 content:", content.decode("utf-8"))
+req = urllib.request.Request(url, headers=headers)
+with urllib.request.urlopen(req) as response:
+    content = response.read()
+    print("Body response:")
+    print("\t- type:", type(content))
+    print("\t- content:", content)
+    print("\t- utf8 content:", content.decode("utf-8"))

@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """
-This script demonstrates fetching content from a URL using urllib.
-
-It fetches content from 'https://intranet.hbtn.io/status' using urllib and displays information about the response body.
+documented by no
 """
 
 import urllib.request

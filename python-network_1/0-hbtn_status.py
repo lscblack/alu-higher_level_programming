@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 Python script using urllib to fetch content from https://alu-intranet.hbtn.io/status
 and display the response body with tabulation before each line.

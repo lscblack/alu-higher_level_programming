@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-"""Documented"""
+"""
+This script demonstrates fetching content from a URL using urllib.
 
+It fetches content from 'https://intranet.hbtn.io/status' using urllib and displays information about the response body.
+"""
 
 import urllib.request
-
 
 if __name__ == '__main__':
     with urllib.request.urlopen('https://intranet.hbtn.io/status') as response:

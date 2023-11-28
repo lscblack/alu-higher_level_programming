@@ -1,20 +1,14 @@
 #!/usr/bin/python3
 """Documented"""
 
+
 import urllib.request
 
-# URL to fetch
-url = 'https://alu-intranet.hbtn.io/status'
 
-# Creating a request object with the URL
-req = urllib.request.Request(url)
-
-# Making the request and reading the response body
-with urllib.request.urlopen(req) as response:
-    body = response.read().decode('utf-8')
-
-# Displaying the response body with tabulation before each line
-lines = body.split('\n')
-for line in lines:
-    print(f"\t- {line}")
-
+if __name__ == '__main__':
+    with urllib.request.urlopen('https://intranet.hbtn.io/status') as response:
+        content = response.read()
+        print("Body response:")
+        print("\t- type: {}".format(type(content)))
+        print("\t- content: {}".format(content))
+        print("\t- utf8 content: {}".format(content.decode("utf-8")))

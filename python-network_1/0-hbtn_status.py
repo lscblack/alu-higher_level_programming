@@ -1,4 +1,6 @@
- #!/usr/bin/python3
+#!/usr/bin/python3
+"""Documented"""
+
 
 import urllib.request
 

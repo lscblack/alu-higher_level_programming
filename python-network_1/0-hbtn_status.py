@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""
-Python script using urllib to fetch content from https://alu-intranet.hbtn.io/status
-and display the response body with tabulation before each line.
-"""
+"""Documented"""
 
 import urllib.request
 
@@ -20,3 +17,4 @@ with urllib.request.urlopen(req) as response:
 lines = body.split('\n')
 for line in lines:
     print(f"\t- {line}")
+

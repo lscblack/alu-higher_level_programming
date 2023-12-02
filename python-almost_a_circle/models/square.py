@@ -1,55 +1,72 @@
 #!/usr/bin/python3
-"""Class Square that inherit from Rectangle"""
+"""
+A module representing a square
+"""
 
-from rectangle import Rectangle
+from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """"
-            Class Square inheriting Rectangle
-            Attr :
-                    id: number
-                    size: number
-                    x: number
-                    y: number
-        """
+    """ Represents a square class"""
 
     def __init__(self, size, x=0, y=0, id=None):
+        """Initialization a Square
+        """
         super().__init__(size, size, x, y, id)
+
+    def __str__(self):
+        """string represation of square
+        """
+        return "[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id,
+                                                         self.x,
+                                                         self.y,
+                                                         self.width)
 
     @property
     def size(self):
-        """Size getter"""
+        """module Square size getter
+        """
         return self.width
 
     @size.setter
     def size(self, value):
-        """Size setter"""
+        """module Square size setter
+        """
         self.width = value
         self.height = value
 
-    def __str__(self):
-        """return [Square] (<id>) <x>/<y> - <size>"""
-        return "[Square] ({}) {}/{} - {}" \
-            .format(self.id, self.x, self.y, self.size)
-
     def update(self, *args, **kwargs):
-        """assigns attributes"""
-        if len(args) != 0:
-            try:
-                self.id = args[0]
-                self.size = args[1]
-                self.x = args[2]
-                self.y = args[3]
-            except IndexError:
-                pass
-        elif len(kwargs) != 0:
-            self.id = kwargs["id"] if "id" in kwargs else self.id
-            self.size = kwargs["size"] if "size" in kwargs \
-                else self.size
-            self.x = kwargs["x"] if "x" in kwargs else self.x
-            self.y = kwargs["y"] if "y" in kwargs else self.y
+        """module update square
+        """
+        if len(args):
+            for i, arg in enumerate(args):
+                if i == 0:
+                    self.id = arg
+                elif i == 1:
+                    self.size = arg
+                elif i == 2:
+                    self.x = arg
+                elif i == 3:
+                    self.y = arg
+        else:
+            for key, value in kwargs.items():
+                if hasattr(self, key) is True:
+                    setattr(self, key, value)
 
     def to_dictionary(self):
-        """returns the dictionary representation of a Rectangle"""
-        return {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
+        """retrun dictonary
+        """
+        return {
+            "id": self.id,
+            "size": self.size,
+            "x": self.x,
+            "y": self.y
+        }
+
+    def __str__(self):
+        """module string represation of square
+        """
+        return "[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id,
+                                                         self.x,
+                                                         self.y,
+                                                         self.width)

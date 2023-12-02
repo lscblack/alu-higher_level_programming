@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Unit tests for Base, Rectangle, and Square classes"""
+"""Test case"""
 
 import os
 import unittest
@@ -10,15 +10,10 @@ from models.square import Square
 
 
 class TestBase(unittest.TestCase):
-    """Test suite for Base class"""
+    """Test class"""
 
-    @classmethod
-    def setUpClass(cls):
-        """Setup test"""
-        print("Starting test")
-
-    def test_base_initialization(self):
-        """Test base initialization and id assignment"""
+    def test_basic(self):
+        """Test basic func"""
         base = Base()
         base_1 = Base()
         base_89 = Base(89)
@@ -27,67 +22,54 @@ class TestBase(unittest.TestCase):
         self.assertEqual(base_89.id, 89)
 
     def test_to_json_string(self):
-        """Test converting objects to JSON string"""
+        """Test Func"""
         self.assertEqual(Base.to_json_string(None), "[]")
         self.assertEqual(Base.to_json_string([]), "[]")
         self.assertEqual(Base.to_json_string([{'id': 12}]), '[{"id": 12}]')
-        self.assertIsInstance(Base.to_json_string([{'id': 12}]), str)
+        self.assertEqual(type(Base.to_json_string([{'id': 12}])), str)
 
     def test_from_json_string(self):
-        """Test converting JSON string to objects"""
+        """Test Func"""
         self.assertEqual(Base.from_json_string(None), [])
         self.assertEqual(Base.from_json_string("[]"), [])
         self.assertEqual(Base.from_json_string('[{"id": 89}]'), [{'id': 89}])
-        self.assertIsInstance(Base.from_json_string('[{"id": 89}]'), list)
+        self.assertEqual(type(Base.from_json_string('[{"id": 89}]')), list)
 
     def test_save_to_file(self):
-        """Test saving objects to JSON file"""
+        """Test func"""
         Base._Base__nb_objects = 0
 
         Square.save_to_file(None)
 
         self.assertTrue(os.path.isfile("Square.json"))
 
-        with open("Square.json") as file:
-            self.assertEqual(file.read(), '[]')
+        with open("Square.json") as fname:
+            self.assertEqual(fname.read(), '[]')
 
         Square.save_to_file([])
-        with open("Square.json") as file:
-            self.assertEqual(file.read(), '[]')
-            self.assertIsInstance(file.read(), str)
+        with open("Square.json") as fname:
+            self.assertEqual(fname.read(), '[]')
+            self.assertEqual(type(fname.read()), str)
 
         Square.save_to_file([Square(1)])
-        with open("Square.json") as file:
-            self.assertEqual(file.read(),
+        with open("Square.json") as fname:
+            self.assertEqual(fname.read(),
                              '[{"id": 1, "size": 1, "x": 0, "y": 0}]')
         Base._Base__nb_objects = 0
 
         Rectangle.save_to_file(None)
         self.assertTrue(os.path.isfile("Rectangle.json"))
         
-        with open("Rectangle.json") as file:
-            self.assertEqual(file.read(), '[]')
+        with open("Rectangle.json") as fname:
+            self.assertEqual(fname.read(), '[]')
 
         Rectangle.save_to_file([])
-        with open("Rectangle.json") as file:
-            self.assertEqual(file.read(), '[]')
-            self.assertIsInstance(file.read(), str)
+        with open("Rectangle.json") as fname:
+            self.assertEqual(fname.read(), '[]')
+            self.assertEqual(type(fname.read()), str)
 
         Rectangle.save_to_file([Rectangle(1, 2)])
-        with open("Rectangle.json") as file:
-            self.assertEqual(file.read(),
+        with open("Rectangle.json") as fname:
+            self.assertEqual(fname.read(),
                              '[{"id": 1, "width": 1, '
                              '"height": 2, "x": 0, "y": 0}]')
-    @classmethod
-    def tearDownClass(cls):
-        """End of test output"""
-        created_files = ["Square.json", "Rectangle.json"]
-        for cfile in created_files:
-            try:
-                os.remove(cfile)
-            except IOError:
-                pass
-        print("Completed test")
-if __name__ == '__main__':
-    unittest.main()
-

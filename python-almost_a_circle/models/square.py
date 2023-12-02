@@ -1,72 +1,60 @@
 #!/usr/bin/python3
-"""
-A module representing a square
-"""
+"""Create Square class"""
 
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """ Represents a square class"""
-
+    """Square class"""
     def __init__(self, size, x=0, y=0, id=None):
-        """Initialization a Square
-        """
+        """Initialization."""
         super().__init__(size, size, x, y, id)
-
-    def __str__(self):
-        """string represation of square
-        """
-        return "[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id,
-                                                         self.x,
-                                                         self.y,
-                                                         self.width)
 
     @property
     def size(self):
-        """module Square size getter
-        """
+        """size of the square"""
         return self.width
 
     @size.setter
     def size(self, value):
-        """module Square size setter
-        """
+        """size of the square"""
         self.width = value
         self.height = value
 
+    def __str__(self):
+        """string representation"""
+        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
+
     def update(self, *args, **kwargs):
-        """module update square
-        """
-        if len(args):
-            for i, arg in enumerate(args):
-                if i == 0:
-                    self.id = arg
-                elif i == 1:
-                    self.size = arg
-                elif i == 2:
-                    self.x = arg
-                elif i == 3:
-                    self.y = arg
-        else:
-            for key, value in kwargs.items():
-                if hasattr(self, key) is True:
-                    setattr(self, key, value)
+        """Update the square"""
+        if len(args) != 0:
+            try:
+                self.id = args[0]
+                self.size = args[1]
+                self.x = args[2]
+                self.y = args[3]
+            except IndexError:
+                pass
+
+        elif len(kwargs) != 0:
+            if "id" in kwargs:
+                self.id = kwargs["id"]
+            else:
+                self.id
+
+            if "size" in kwargs:
+                self.size = kwargs["size"]
+            else:
+                self.size
+
+            if "x" in kwargs:
+                self.x = kwargs["x"]
+            else:
+                self.x
+
+            if "y" in kwargs:
+                self.y = kwargs["y"]
 
     def to_dictionary(self):
-        """retrun dictonary
-        """
-        return {
-            "id": self.id,
-            "size": self.size,
-            "x": self.x,
-            "y": self.y
-        }
-
-    def __str__(self):
-        """module string represation of square
-        """
-        return "[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id,
-                                                         self.x,
-                                                         self.y,
-                                                         self.width)
+        """dictionary representation"""
+        return {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
